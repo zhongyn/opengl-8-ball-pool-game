@@ -31,21 +31,17 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p>CS552 Computer Animation
-Project 3 Billiard Game
-Yaonan Zhong
-May 31, 2014</p>
+        <p><strong>Abstract</strong>: In this project, I build an interacting billiard game using modern OpenGL API. This game simulates a table with 6 pockets and 16 balls including a cue ball. The cue ball can be hit with a force using the mouse motions such that it gets an initial velocity. And the balls can rolling on the table by simulating friction. I also implement the necessary physics to modeling the collision between a ball and a sidewall, and between two balls. In addition, per-fragment shading is also implemented to achieve better lighting effect. </p>
 
-<p>Abstract: In this project, we build an interacting billiard game using modern OpenGL API. This game simulates a table with 6 pockets and 16 balls including a cue ball. The cue ball can be hitted with a force using the mouse motions such that it gets an initial velocity. And the balls can rolling on the table by simulating friction. We also implement the necessary physics to modeling the collision between a ball and a sidewall, and between two balls. In addition, per-fragment shading is also implemented to achieve better lighting effect. </p>
+<p>This report contains five part: </p>
 
-<p>This report contains five part: 
-1. Geometry and rendering setup
-2. Interaction of hitting a ball
-3. Motion of a ball
-4. Collision handling
-5. Summary and discussion</p>
-
-<p>Part 1 Geometry and rendering setup</p>
+<ol>
+<li>Geometry and rendering setup</li>
+<li>Interaction of hitting a ball</li>
+<li>Motion of a ball</li>
+<li>Collision handling</li>
+<li>Summary and discussion</li>
+</ol><p>Part 1 Geometry and rendering setup</p>
 
 <p>First, we create a sphere mesh for drawing the balls and also a table mesh. And then we bind 16 textures to all the balls. Figure 1 shows the mesh and textures for pool balls. </p>
 
