@@ -1,76 +1,124 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>8 Ball Pool Game with OpenGL &amp; C++ by zhongyn</title>
+    <meta name="description" content="8 Ball Pool Game with OpenGL &amp; C++ : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>8 Ball Pool Game with OpenGL &amp; C++</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>8 Ball Pool Game with OpenGL &amp; C++</h1>
-          <h2></h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/zhongyn/opengl-8-ball-pool-game">View on GitHub</a>
+
+          <h1 id="project_title">8 Ball Pool Game with OpenGL &amp; C++</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/zhongyn/opengl-8-ball-pool-game/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/zhongyn/opengl-8-ball-pool-game/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/zhongyn/opengl-8-ball-pool-game/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/zhongyn/opengl-8-ball-pool-game/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/zhongyn/opengl-8-ball-pool-game" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <footer>
-          8 Ball Pool Game with OpenGL &amp; C++ is maintained by <a href="https://github.com/zhongyn">zhongyn</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
     </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>CS552 Computer Animation
+Project 3 Billiard Game
+Yaonan Zhong
+May 31, 2014</p>
+
+<p>Abstract: In this project, we build an interacting billiard game using modern OpenGL API. This game simulates a table with 6 pockets and 16 balls including a cue ball. The cue ball can be hitted with a force using the mouse motions such that it gets an initial velocity. And the balls can rolling on the table by simulating friction. We also implement the necessary physics to modeling the collision between a ball and a sidewall, and between two balls. In addition, per-fragment shading is also implemented to achieve better lighting effect. </p>
+
+<p>This report contains five part: 
+1. Geometry and rendering setup
+2. Interaction of hitting a ball
+3. Motion of a ball
+4. Collision handling
+5. Summary and discussion</p>
+
+<p>Part 1 Geometry and rendering setup</p>
+
+<p>First, we create a sphere mesh for drawing the balls and also a table mesh. And then we bind 16 textures to all the balls. Figure 1 shows the mesh and textures for pool balls. </p>
+
+<p>Figure 1 The sphere mesh and pool balls textures</p>
+
+<p>Figure 2 shows the initial  setup, including a table, 16 balls and 6 pockets.</p>
+
+<p>Figure 2 The initial setup of our pool game with the table, balls, pocket and lighting</p>
+
+<p>Figure 3 The shining spots on ball surfaces show per-fragment shading</p>
+
+<p>Part 2 Interaction of hitting a ball</p>
+
+<p>In this part, we implement an interface for hitting a ball. We can press down the left button of the mouse, mouse the cursor to a ball surface and release the mouse. The end position on the ball is the hitting point, and the vector from which the mouse moved towards the hitting point gives the force on the ball at the hitting point. </p>
+
+<p>The implementation includes:
+1. Auto detect the ID of the hitted ball
+2. Calculate the force
+3. Assign an initial velocity to the hitted ball</p>
+
+<p>For detecting the ball ID, we use color picking method by creating another render routine. For calculating hitting force we use windows coordinates to decide the size and direction of the force. And we use the following equations to derive the initial velocity for the hitted ball.</p>
+
+<p>Here, the Δt is the amount of time the cue is in contact with the ball. The k is a constant coefficient. The m is the mass of the cue ball and the vector x is the difference between the starting and end points of the mouse hitting motion. The vector r represents the radius from the center that the cue ball was stuck.</p>
+
+<p>Figure 4 Let’s start our game!
+Part 3 Motion of a ball</p>
+
+<p>Once the ball has an initial linear and angular velocities, it begins to move across the table. After it leaves the tip of the cue, the only force acting on the cue ball is the force of friction from the table. The motions of our balls include sliding and rolling. We use the following equations to update the linear and angular velocities of the ball when it moves across the table.</p>
+
+<p>Here we have a new vector vp, which is the perimeter velocity of the ball at the point of contact with table. The us is the coefficient of sliding friction and g is the force of gravity. </p>
+
+<p>Figure 5 The game is going on!</p>
+
+<p>Part 4 Collision handling</p>
+
+<p>The collision between two balls or between a ball and a wall can be detected by calculating the distance between the centers of two ball or between the center of a ball  and the wall. </p>
+
+<ol>
+<li>Collision between two balls</li>
+</ol><p>If a collision is detected, we need to update the velocity vectors of the ball involved. And we use conservation of energy and conservation of momentum principles to derive the updated velocities. The following equations show the final results.</p>
+
+<p>For linear velocity:</p>
+
+<p>First we calculate the normal to the collision plane. The vectors vn1 and vt1 are the normal and tangential components of the velocity of ball 1. And the vn2 and vt2 are for ball 2. The results show that the new linear velocities of two balls simply come from exchanging the normal components of two old velocities.</p>
+
+<p>For angular velocity:</p>
+
+<p>The ub is the coefficient of friction between two balls. The vector vpR is the relative perimeter velocity between two balls. The above equation shows the change for ball 2, and ball 1 has exact same change. </p>
+
+<ol>
+<li>Collision between a ball and a wall</li>
+</ol><p>It is much easy to implement the collision between a ball and a wall. Similar to the reflection principle of light, we use the following equations for updating the velocity.
+v’ = vt - vn
+w’ = wn - wt
+First we calculate the normal of the wall. The vector vn and vt are the normal and tangential component of incident velocity of the ball, and v’ is the reflection velocity. Similarly we apply wn and wt to angular velocity.</p>
+
+<p>Part 5 Summary</p>
+
+<p>In addition to the above implementations, the balls can also go into the pockets. If the ball is cue ball, it will automatically come out again immediately at the center of table. And the future work can be simulating the players and a chalk, which are easy to implement.</p>
+
+<p>Figure 6 Finally we finish the game. Yep!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">8 Ball Pool Game with OpenGL &amp; C++ maintained by <a href="https://github.com/zhongyn">zhongyn</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
