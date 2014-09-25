@@ -49,13 +49,12 @@
 <a name="part-1-geometry-and-rendering-setup" class="anchor" href="#part-1-geometry-and-rendering-setup"><span class="octicon octicon-link"></span></a>Part 1 Geometry and rendering setup</h4>
 
 <p>First, we create a sphere mesh for drawing the balls and also a table mesh. And then we bind 16 textures to all the balls. Figure 1 shows the mesh and textures for pool balls. </p>
-
+<img src="images/ball_mesh.jpg" alt="Ball Mesh" style="width:300px;height:300px">
+<img src="images/ball_texture.png" alt="Ball Texture" style="width:300px;height:300px">
 <p>Figure 1 The sphere mesh and pool balls textures</p>
-
-<p>Figure 2 shows the initial  setup, including a table, 16 balls and 6 pockets.</p>
-
+<img src="images/initial_setup.png" alt="Initial Setup" style="width:600px;height:300px">
 <p>Figure 2 The initial setup of our pool game with the table, balls, pocket and lighting</p>
-
+<img src="images/per_fragment.png" alt="Per-fragment Shading" style="width:600px;height:300px">
 <p>Figure 3 The shining spots on ball surfaces show per-fragment shading</p>
 
 <h4>
@@ -63,50 +62,64 @@
 
 <p>In this part, we implement an interface for hitting a ball. We can press down the left button of the mouse, mouse the cursor to a ball surface and release the mouse. The end position on the ball is the hitting point, and the vector from which the mouse moved towards the hitting point gives the force on the ball at the hitting point. </p>
 
-<p>The implementation includes:
-1. Auto detect the ID of the hitted ball
-2. Calculate the force
-3. Assign an initial velocity to the hitted ball</p>
+<p>The implementation includes: </p>
+<ol>
+<li>Auto detect the ID of the hitted ball</li>
+<li>Calculate the force</li>
+<li>Assign an initial velocity to the hitted ball</li>
+</ol>
 
 <p>For detecting the ball ID, we use color picking method by creating another render routine. For calculating hitting force we use windows coordinates to decide the size and direction of the force. And we use the following equations to derive the initial velocity for the hitted ball.</p>
+<img src="images/linear_v1.jpg" alt="Linear Velocity" style="width:200px;height:100px">
+<img src="images/angular_v1.jpg" alt="Angular Velocity" style="width:300px;height:100px">
 
 <p>Here, the Δt is the amount of time the cue is in contact with the ball. The k is a constant coefficient. The m is the mass of the cue ball and the vector x is the difference between the starting and end points of the mouse hitting motion. The vector r represents the radius from the center that the cue ball was stuck.</p>
+<img src="images/game_start.png" alt="Game Start" style="width:600px;height:300px">
 
-<p>Figure 4 Let’s start our game!
-Part 3 Motion of a ball</p>
+<p>Figure 4 Let’s start our game!</p>
+
+<h4>Part 3 Motion of a ball</h4>
 
 <p>Once the ball has an initial linear and angular velocities, it begins to move across the table. After it leaves the tip of the cue, the only force acting on the cue ball is the force of friction from the table. The motions of our balls include sliding and rolling. We use the following equations to update the linear and angular velocities of the ball when it moves across the table.</p>
+<img src="images/linear_v2.jpg" alt="Linear Velocity" style="width:200px;height:100px">
+<img src="images/angular_v2.jpg" alt="Angular Velocity" style="width:300px;height:100px">
 
 <p>Here we have a new vector vp, which is the perimeter velocity of the ball at the point of contact with table. The us is the coefficient of sliding friction and g is the force of gravity. </p>
+<img src="images/game_on.png" alt="Game On" style="width:600px;height:300px">
 
 <p>Figure 5 The game is going on!</p>
 
-<p>Part 4 Collision handling</p>
+<h4>Part 4 Collision handling</h4>
 
 <p>The collision between two balls or between a ball and a wall can be detected by calculating the distance between the centers of two ball or between the center of a ball  and the wall. </p>
 
-<ol>
-<li>Collision between two balls</li>
-</ol><p>If a collision is detected, we need to update the velocity vectors of the ball involved. And we use conservation of energy and conservation of momentum principles to derive the updated velocities. The following equations show the final results.</p>
+
+<p>1. Collision between two balls</p>
+<p>If a collision is detected, we need to update the velocity vectors of the ball involved. And we use conservation of energy and conservation of momentum principles to derive the updated velocities. The following equations show the final results.</p>
 
 <p>For linear velocity:</p>
+<img src="images/linear_collision.jpg" alt="Linear Collision" style="width:200px;height:100px">
 
-<p>First we calculate the normal to the collision plane. The vectors vn1 and vt1 are the normal and tangential components of the velocity of ball 1. And the vn2 and vt2 are for ball 2. The results show that the new linear velocities of two balls simply come from exchanging the normal components of two old velocities.</p>
+<p>First we calculate the normal to the collision plane. The vectors vn1 and vt1 are the normal and tangential components of the velocity of ball 1. And the vn2 and vt2 are for ball 
+  2. The results show that the new linear velocities of two balls simply come from exchanging the normal components of two old velocities.</p>
 
 <p>For angular velocity:</p>
+<img src="images/angular_collision.jpg" alt="Angular Collision" style="width:500px;height:100px">
 
 <p>The ub is the coefficient of friction between two balls. The vector vpR is the relative perimeter velocity between two balls. The above equation shows the change for ball 2, and ball 1 has exact same change. </p>
 
-<ol>
-<li>Collision between a ball and a wall</li>
-</ol><p>It is much easy to implement the collision between a ball and a wall. Similar to the reflection principle of light, we use the following equations for updating the velocity.
-v’ = vt - vn
-w’ = wn - wt
-First we calculate the normal of the wall. The vector vn and vt are the normal and tangential component of incident velocity of the ball, and v’ is the reflection velocity. Similarly we apply wn and wt to angular velocity.</p>
 
-<p>Part 5 Summary</p>
+<p>2. Collision between a ball and a wall</p>
+
+<p>It is much easy to implement the collision between a ball and a wall. Similar to the reflection principle of light, we use the following equations for updating the velocity.</p>
+<p>v’ = vt - vn</p>
+<p>w’ = wn - wt</p>
+<p>First we calculate the normal of the wall. The vector vn and vt are the normal and tangential component of incident velocity of the ball, and v’ is the reflection velocity. Similarly we apply wn and wt to angular velocity.</p>
+
+<h4>Part 5 Summary</h4>
 
 <p>In addition to the above implementations, the balls can also go into the pockets. If the ball is cue ball, it will automatically come out again immediately at the center of table. And the future work can be simulating the players and a chalk, which are easy to implement.</p>
+<img src="images/game_end.png" alt="Game End" style="width:600px;height:300px">
 
 <p>Figure 6 Finally we finish the game. Yep!</p>
       </section>
